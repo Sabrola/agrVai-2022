@@ -1,15 +1,9 @@
-import axios from 'axios'
+import ky from 'ky'
 
-const api = axios.create({
-    // Precisa terminar com /
-    baseURL: 'https://agoravai-fausto.onrender.com/',
-    timeout: 5000,
-    //Envia os cookies seguros $de volta a todas as requisições
-    credentials: true
-
-    /* headers: {
-        'x-access-token': window.sessionStorage.getItem('app-data')
-    } */  
+const api = ky.extend({
+    prefixUrl: 'https://agrvai-sab.onrender.com',
+    credentials: 'include',
+    timeout: 10000
 })
 
 export default api
